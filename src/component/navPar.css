@@ -1,0 +1,121 @@
+nav {
+  height: 5rem;
+  width: 100vw;
+  background-color: var(--color-primary);
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.nav-container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 7rem;
+  display: block;
+}
+.navLinks {
+  display: flex;
+  gap: 3.5rem;
+}
+.navLinks a {
+  transition: var(--transition);
+}
+.navLinks a:hover {
+  color: var(--color-secondary);
+}
+a.active {
+  position: relative;
+}
+a.active::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: var(--color-primary);
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.9rem;
+  left: calc(50% - 0.6rem);
+  transform: rotate(45deg);
+}
+.nav-toggle-btn {
+  display: none;
+}
+/* Media Queries small and  medium Screens*/
+@media (max-width: 1024px) {
+  .nav-toggle-btn {
+    display: inline-block;
+    background-color: transparent;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .nav-toggle-btn svg {
+    color: var(--color-gray-100);
+  }
+  .navLinks {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    perspective: 400px;
+  }
+  .navLinks li {
+    height: 4rem;
+    width: 100%;
+    box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.4);
+    animation: nav-animation 600ms ease forwards;
+    transform: rotateX(90deg);
+    opacity: 0;
+    transform-origin: top;
+  }
+  .navLinks li:nth-child(2) {
+    animation-delay: 200ms;
+  }
+  .navLinks li:nth-child(3) {
+    animation-delay: 400ms;
+  }
+  .navLinks li:nth-child(4) {
+    animation-delay: 600ms;
+  }
+  .navLinks li:nth-child(5) {
+    animation-delay: 800ms;
+  }
+  .navLinks li:nth-child(6) {
+    animation-delay: 1s;
+  }
+  .navLinks li:nth-child(7) {
+    animation-delay: 1.2s;
+  }
+  @keyframes nav-animation {
+    to {
+      transform: rotateX(0);
+      opacity: 1;
+    }
+  }
+  .navLinks li a,
+  a.active {
+    background-color: var(--color-primary);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 5rem 1rem 3rem;
+  }
+  a.active::after {
+    display: none;
+  }
+  .showNav {
+    display: flex;
+  }
+  .hideNav {
+    display: none;
+  }
+}
