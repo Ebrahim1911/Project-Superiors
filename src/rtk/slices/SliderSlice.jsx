@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import testimonials from "./././data";
 import { testimonials } from "../../data";
 const sliderSlice = createSlice({
   initialState: {
